@@ -8,7 +8,7 @@
 |3|Florian & Gianfranco|
 |4|Florian & Gianfranco|
 
-# Student names and numbers:
+### Student names and numbers:
 ​
 The assignments below should be solved and documented as a mini-project that will form the basis for the examination. When solving the exercises it is important that you
 
@@ -18,7 +18,7 @@ Feel free to add cells if you need to. The easiest way to convert to pdf is to s
 ```python
 # Import all necessary libraries here
 ```
-Exercise 1: Decision trees
+# Exercise 1: Decision trees
 In this exercise we investigate the Boston Housing dataset, which we treat as a classification problem:
 
 ```python
@@ -31,17 +31,17 @@ c = np.array([1 if y > np.median(data['target']) else 0 for y in data['target']]
 X_train, X_test, c_train, c_test = train_test_split(data['data'], c, random_state=0)
 ```
 
-Model learning
+## Model learning
 a) Learn a decision tree using the training data and evaluate its performance on both the training data and the test data. Generate random training/test partitions or varying sizes and analyze how the accuracy results vary (consult the documentation for train_test_split(.)).
 
-Model analysis
+ ### Model analysis
 b) Display the decision tree learned using the training data.
 
 c) What are the most important features as determined by the learned tree and does, e.g., the choice of top node seem reasonable to you?
 
 d) How does the features deemed most important by the decision tree learner match the generated tree and your understanding of house prices?
 
-Model complexity
+### Model complexity
 e) Try controlling the complexity of the learned decision tree by adjusting the parameters max_depth, min_samples_split, min_samples_leaf
 
 f) Investigate the effect when changing these parameters:
@@ -50,12 +50,12 @@ f) Investigate the effect when changing these parameters:
 - Evaluate the performance of the models on both the training data and the test data
 g) Try to find good parameter values using cross-validation. How does the obtained parameters match your manual investigation?
 
-Exercise 2: Regression with random forest
+# Exercise 2: Regression with random forest
 For this exercise we will use the nycflights dataset ("flights.csv").
 
 So far, we have only considered how to use decision trees and random forests for classification. However, both algorithms can also be used for regression tasks, as we will see in the exercises below.
 
-Preprocessing
+### Preprocessing
 a) Load the data, and consider how you want to handle missing values and categorical variables (you may choose to remove some features entirely). Carefully consider which variables are categorical. Normalize all relevant variables.
 
 b) In the following, we are going to determine which factors cause departure time delays, and try to predict the length of these delays. However, for several departures, a negative delay have been reported. How do you interpret a negative delay? Consider if you want to modify the negative delays in some way.
@@ -78,7 +78,7 @@ h) Plot the arrival time delays as a function of the departure time delay, and s
 
 i) Based on the results obtained above, make a plot that extrapolates a little bit in order to predict delays slightly larger than the largest delay found in the dataset. Which model do you think gives the most trustworthy extrapolation?
 
-Exercise 3: SVM
+# Exercise 3: SVM
 In this exercise we perform character recognition using SVM classifiers. We use the MNIST dataset, which consists of 70000 handwritten digits 0-9 at a resolution of 28x28 pixels. In the cell below, the dataset is loaded and split into 60000 traning and 10000 testing images, and reshaped into the appropriate shape for an SVM classifier.
 ```python
 from keras.datasets import mnist
@@ -112,7 +112,7 @@ plt.imshow(x_bin_train[0].reshape(28,28),cmap=plt.cm.gray_r)
 plt.show()
 print(y_bin_train[0])
 ```
-Training an SVM model
+## Training an SVM model
 a) Learn different SVM models by varying e.g. the kernel functions and/or the C- and gamma-parameters. For each configuration, determine the time it takes to learn the model, and the accuracy on the test data. Caution: for some configurations, learning here can take a little while (several minutes).
 
 b) Inspect some misclassified cases. Do they correspond to hard to recognize digits (also for the human reader)? (Hint: you can e.g. use the numpy where() function to extract the indices of the test cases that were misclassified: misclass = np.where(test != predictions) )
@@ -123,7 +123,7 @@ d) Explain how a binary classifier, such as an SVM, can be applied to a multicla
 
 e) Identify one or several good configurations that give a reasonable combination of accuracy and runtime. Use these configurations to perform a full classification of the 10 classes in the original dataset (after split into train/test). Using sklearn.metrics.confusion_matrix you can get an overview of all combinations of true and predicted labels (see p. 298-299 in Müller & Guido). What does this tell you about which digits are easy, and which ones are difficult to recognize, and which ones are most easily confused?
 
-Cheating
+## Cheating
 We next investigate the capability of the different learning approaches to find a good model, knowing that a very accurate model exists. For this, we add a 'cheat column' to our data: we add an additional column to the data matrix that simply contains a 0/1 encoding of the actual class label:
 ```python
 #adding cheating information to the training data:
